@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class NewCountry extends Component {
-    state = {}
+const NewCountry = (props) => {
+    const { onAddCountry } = props;
 
-    async handleClick()
-    {
+    const handleClick = () => {
         const name = prompt('Enter Country Name');
 
         //const worldometer = require('worldometer-coronavirus-info')
@@ -19,20 +18,17 @@ class NewCountry extends Component {
         const countryId = '';
 
         if (name && name.trim().length > 0) {
-            this.props.onAddCountry(countryId, name, flag);
+            onAddCountry(countryId, name, flag);
         }
     }
-    render() {
-        const { addNewCountry } = this.props;
 
-        return (
-            < div className="NewCountry" >
-                <button onClick={ e => this.handleClick() }  >
-                    Add New Country
-                </button>
-            </div>
-        );
-    }
+    return (
+        < div className="NewCountry" >
+            <button onClick={ e => handleClick() }  >
+                Add New Country
+            </button>
+        </div>
+    );
 }
 
 export default NewCountry

@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
-class Medal extends Component {
+const Medal = (props) => {
 
-    render() {
-        const { countryId, onChangeValue, medal } = this.props;
+    const { countryId, onChangeValue, medal } = props;
 
-        return (
-            <a className={medal.deco} >
-                <button onClick={ e => { onChangeValue (countryId, medal.medalType, -1); }} className='IncrMedalButton' >
-                    -
-                </button>
-                { medal.count }
-                <button onClick={ e => { onChangeValue (countryId, medal.medalType, 1); }} className='IncrMedalButton' >
-                    +
-                </button>
-            </a>
-        );
-    }
+    return (
+        <a className={medal.deco} >
+            <button onClick={ e => { onChangeValue (countryId, medal.medalType, -1); }} className='IncrMedalButton' >
+                -
+            </button>
+            { medal.count }
+            <button onClick={ e => { onChangeValue (countryId, medal.medalType, 1); }} className='IncrMedalButton' >
+                +
+            </button>
+        </a>
+    );
 }
 
 export default Medal
